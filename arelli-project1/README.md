@@ -45,7 +45,7 @@ dags/customer_care_emails_ingest.py
 <img width="589" height="202" alt="image" src="https://github.com/user-attachments/assets/6acebbea-9fd1-4bf4-afda-c5d95925cb2d" />
 # Task Flow
 <img width="838" height="123" alt="image" src="https://github.com/user-attachments/assets/c86c35b9-dec8-413a-867f-ad8a698f12ee" />
-#  Runbook (Operational Guide)
+##  Runbook (Operational Guide)
 Updating schema or new fields
 Modify schema YAML file
 Update create_table.sql
