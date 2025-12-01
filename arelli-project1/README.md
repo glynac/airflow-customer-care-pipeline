@@ -43,20 +43,25 @@ dags/customer_care_emails_ingest.py
 
 # Tasks & Dependencies
 <img width="589" height="202" alt="image" src="https://github.com/user-attachments/assets/6acebbea-9fd1-4bf4-afda-c5d95925cb2d" />
+
 # Task Flow
 <img width="838" height="123" alt="image" src="https://github.com/user-attachments/assets/c86c35b9-dec8-413a-867f-ad8a698f12ee" />
+
 ##  Runbook (Operational Guide)
 Updating schema or new fields
 Modify schema YAML file
 Update create_table.sql
 Add transformation logic in Python
 Clear and rerun DAG
+
 ## New CSV drops / incremental batches
 Replace CSV inside sample_data
 Ensure status != done logic handles previously loaded rows
 Trigger DAG manually
+
 # Checklist before dataset commits
 <img width="404" height="247" alt="image" src="https://github.com/user-attachments/assets/ee8ba5cd-96c9-40c1-bb39-4594d0e53ec3" />
+
 # Completion Criteria
 This documentation ensures future engineers can: - Start the environment - Understand Airflow DAG flow -
 Troubleshoot failures - Extend pipeline logic safely
