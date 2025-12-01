@@ -1,0 +1,55 @@
+services:
+  postgres:
+    image: postgres:13
+    container_name: airflow_postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  airflow-webserver:
+    image: apache/airflow:2.7.0
+    container_name: airflow_webserver
+    depends_on:
+      - postgres
+    env_file:
+      - .env.example
+    environment:
+      PG_HOST: airflow_postgres
+      PG_PORT: "5432"
+      PG_DB: airflow
+      PG_USER: airflow
+      PG_PASSWORD: airflow
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../dags:/opt/airflow/dags
+      - ../extraction:/opt/airflow/extraction
+      - ../logs:/opt/airflow/logs
+    command: webserver
+
+  airflow-scheduler:
+    image: apache/airflow:2.7.0
+    container_name: airflow_scheduler
+    depends_on:
+      - postgres
+    env_file:
+      - .env.example
+    environment:
+      PG_HOST: airflow_postgres
+      PG_PORT: "5432"
+      PG_DB: airflow
+      PG_USER: airflow
+      PG_PASSWORD: airflow
+    volumes:
+      - ../dags:/opt/airflow/dags
+      - ../extraction:/opt/airflow/extraction
+      - ../logs:/opt/airflow/logs
+    command: scheduler
+
+volumes:
+  postgres_data:

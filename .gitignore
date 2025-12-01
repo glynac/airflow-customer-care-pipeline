@@ -1,0 +1,18 @@
+# Airflow logs (do not commit)
+logs/
+*/logs/
+extraction/*/logs/
+
+# Python cache
+_pycache_/
+*.pyc
+
+# Local environment files
+.env
+.env.*
+
+# Docker/Postgres volume folders (if created locally)
+postgres_data/
+
+# Generated data file (OK to ignore cleaned output)
+extraction/customer_care_emails/sample_data/cleaned.csv
